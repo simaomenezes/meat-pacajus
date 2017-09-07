@@ -1,0 +1,1 @@
+export const MEAT_PACAJUS_API = 'http://localhost:3000'
