@@ -1,3 +1,4 @@
+import { NotfoundComponent } from './notfound/notfound.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
@@ -16,5 +17,6 @@ export const ROUTES: Routes = [
             {path: 'review', component: ReviewsComponent}
         ]
     },
-    {path: 'about', component: AboutComponent}
+    {path: 'about', component: AboutComponent},
+    {path: '**', component: NotfoundComponent}
 ]
