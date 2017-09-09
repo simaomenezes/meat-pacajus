@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { LocationStrategy, HashLocationStrategy} from '@angular/common'
 
 
 import { AppComponent } from './app.component';
@@ -41,6 +42,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
+  // utilizando configuracao para url com # -- hash
+  // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy }, RestaurantsService, ShoppingCartService],
   providers: [RestaurantsService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
