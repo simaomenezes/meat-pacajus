@@ -28,4 +28,11 @@ export class RestaurantsService {
             .map(response => response.json())
             .catch(ErrorHandler.handlerError)
     }
+
+    //pega os dados do reviews
+    reviewsOfRestaurant(id: string): Observable<any> {
+        return this.http.get(`${MEAT_PACAJUS_API}/restaurants/${id}/reviews`)
+            .map(resp => resp.json())
+            .catch(ErrorHandler.handlerError)
+    }
 }
