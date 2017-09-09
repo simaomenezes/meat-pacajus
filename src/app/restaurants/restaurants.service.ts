@@ -1,3 +1,4 @@
+import { MenuItem } from './../restaurant-detail/menu-item/menu-item.model';
 import { ErrorHandler } from './../app.error-handler';
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
@@ -32,6 +33,13 @@ export class RestaurantsService {
     //pega os dados do reviews
     reviewsOfRestaurant(id: string): Observable<any> {
         return this.http.get(`${MEAT_PACAJUS_API}/restaurants/${id}/reviews`)
+            .map(resp => resp.json())
+            .catch(ErrorHandler.handlerError)
+    }
+
+    //pega os menu do restaurant
+    menuOfRestaurant(id: string): Observable<MenuItem[]> {
+        return this.http.get(`${MEAT_PACAJUS_API}/restaurants/${id}/menu`)
             .map(resp => resp.json())
             .catch(ErrorHandler.handlerError)
     }
