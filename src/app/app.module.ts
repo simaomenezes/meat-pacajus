@@ -8,7 +8,7 @@ import { RestaurantsService } from './restaurants/restaurants.service';
 
 import { ROUTES } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common'
@@ -44,7 +44,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
   ],
   // utilizando configuracao para url com # -- hash
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy }, RestaurantsService, ShoppingCartService],
-  providers: [RestaurantsService, ShoppingCartService],
+  providers: [RestaurantsService, ShoppingCartService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

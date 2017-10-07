@@ -48,6 +48,7 @@
     "ts-node": "2.1.0",
     "tslint": "4.5.0",
     "typescript": "2.2.0",
-    "webdriver-manager": "10.2.5"
+    "webdriver-manager": "10.2.5",
+    "intl": "^1.2.5"
   }
 }
