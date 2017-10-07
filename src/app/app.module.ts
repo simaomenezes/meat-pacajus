@@ -21,6 +21,7 @@ import { AboutComponent } from './about/about.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
