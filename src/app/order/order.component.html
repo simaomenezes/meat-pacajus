@@ -2,9 +2,10 @@
 <section class="content-header">
 </section>
 
+{{ form.value | json }}
+
 <section class="content">
   <section class="invoice">
-
         <form #form="ngForm">
           <div class="row">
             <div class="col-xs-12">
@@ -77,51 +78,10 @@
             <div class="col-xs-12">
               <p class="lead">Itens do Pedido:</p>
             </div>
-            <div class="col-xs-12 table-responsive">
 
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th class="text-center">Quantidade</th>
-                  <th>Item</th>
-                  <th>Descrição</th>
-                  <th class="text-right">Subtotal</th>
-                  <th class="text-right"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td class="text-center">
-                    <a class="btn btn-sm"><i class="fa fa-minus"></i></a>
-                    1
-                    <a class="btn btn-sm"><i class="fa fa-plus"></i></a>
-                  </td>
-                  <td>Cup Cake</td>
+            <!-- componente para items do carrinho -->
+            <mt-order-items></mt-order-items>
 
-                  <td>Recheado com doce de leite</td>
-                  <td class="text-right">R$ 10,00</td>
-                  <td class="text-right">
-                    <a class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <a class="btn btn-sm"><i class="fa fa-minus"></i></a>
-                    1
-                    <a class="btn btn-sm"><i class="fa fa-plus"></i></a>
-                  </td>
-                  <td>Croissant</td>
-
-                  <td>Recheado com presunto e queijo</td>
-                  <td class="text-right">R$ 10,00</td>
-                  <td class="text-right">
-                    <a class="btn btn-sm danger "><i class="fa fa-remove"></i></a>
-                  </td>
-                </tr>
-
-                </tbody>
-              </table>
-            </div>
             <!-- /.col -->
           </div>
           <!-- /.row -->
@@ -132,7 +92,7 @@
               <p class="lead">Formas de Pagamento:</p>
 
                 <div class="form-group">
-                  <mt-radio [options]="paymentOptions"></mt-radio>
+                  <mt-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-radio>
 
                 </div>
 
