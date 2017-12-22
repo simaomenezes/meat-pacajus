@@ -80,7 +80,12 @@
             </div>
 
             <!-- componente para items do carrinho -->
-            <mt-order-items></mt-order-items>
+            <mt-order-items [items]="carItems()" 
+              (increaseQty)="increaseQty($event)" 
+              (decreaseQty)="decreaseQty($event)" 
+              (remove)="remove($event)"
+              >
+            </mt-order-items>
 
             <!-- /.col -->
           </div>
