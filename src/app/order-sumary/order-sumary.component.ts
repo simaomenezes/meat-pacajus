@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-sumary.component.css']
 })
 export class OrderSumaryComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

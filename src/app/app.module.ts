@@ -29,6 +29,7 @@ import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
 import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
+import { RatingComponent } from './shared/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
     RadioComponent,
     OrderItemsComponent,
     DeliveryCostsComponent,
-    OrderSumaryComponent
+    OrderSumaryComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
