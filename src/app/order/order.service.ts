@@ -37,11 +37,10 @@ export class OrderService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post(
-        `${MEAT_PACAJUS_API}/orders`, 
-        JSON.stringify(order), 
-        new RequestOptions({headers: headers})).map(res => res.json()
-      );
+    return this.http.post(`${MEAT_PACAJUS_API}/orders`, JSON.stringify(order), 
+      new RequestOptions({headers: headers}))
+      .map(res => res.json())
+      .map(order => order.id);
   }
 
 
