@@ -1,8 +1,8 @@
-import { FormGroup, FormBuilder,Validators } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators, AbstractControl } from '@angular/forms';
 import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
 import { OrderService } from './order.service';
 import { RadioOption } from './../shared/radio/radio-options.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, group } from '@angular/core';
 import { Order, OrderItem } from 'app/order/order';
 import { Router } from '@angular/router';
 
@@ -40,9 +40,20 @@ export class OrderComponent implements OnInit {
         number: this.formBuilder.control('',[Validators.required, Validators.pattern(this.numberPattern)]),
         optionaLAddress: this.formBuilder.control(''),
         paymentOptions: this.formBuilder.control('',[Validators.required])
-      }      
-    )
+      }, {validator: OrderComponent.equalsTo})
+  }
 
+  static equalsTo(group: AbstractControl):{[key:string]: boolean}{
+    const email = group.get('email')
+    const emailConfirmation = group.get('emailConfirmation')
+    if (!email || !emailConfirmation){
+      return undefined;
+    }
+
+    if (email.value !== emailConfirmation.value){
+      return {emailsNotMatch: true}
+    }
+    return undefined;
   }
 
   itemsValue(): number{
