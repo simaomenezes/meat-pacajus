@@ -1,9 +1,11 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
 import { OrderService } from './order.service';
 import { RadioOption } from './../shared/radio/radio-options.model';
 import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from 'app/order/order';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'mt-order',
@@ -19,9 +21,25 @@ export class OrderComponent implements OnInit {
     {label: 'Cartão Refeição', value: 'REF'},
   ]
 
-  constructor(private orderService: OrderService, private router: Router) { }
+
+  //criando componentes para form
+  orderForm: FormGroup;
+
+  constructor(private orderService: OrderService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.orderForm = this.formBuilder.group(
+      {
+        name: this.formBuilder.control(''),
+        email: this.formBuilder.control(''),
+        emailConfirmation: this.formBuilder.control(''),
+        address: this.formBuilder.control(''),
+        number: this.formBuilder.control(''),
+        optionaLAddress: this.formBuilder.control(''),
+        paymentOptions: this.formBuilder.control('')
+      }      
+    )
+
   }
 
   itemsValue(): number{

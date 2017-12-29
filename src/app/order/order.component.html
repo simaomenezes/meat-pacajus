@@ -3,14 +3,70 @@
 </section>
 <section class="content">
   <section class="invoice">
-        <form #form="ngForm">
+        <form [formGroup]="orderForm" novalidate>
           <div class="row">
             <div class="col-xs-12">
               <h2 class="page-header">
                 <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
               </h2>
             </div>
-          </div>                
+          </div>
+          
+          <div class="row">
+              <div class="col-xs-12">
+                  <p class="lead">Seus Dados:</p>
+                </div>   
+                
+                
+                <div class="col-sm-6 col-xs-12">
+                    <mt-input-container 
+                      errorMessage="Campo obrigatório e com 5 caracteres" 
+                      label="Nome"
+                    >
+                      <input class="form-group" 
+                        type="text" 
+                        class="form-control" 
+                        id="inputSuccess" 
+                        minlength="5" 
+                        placeholder="Nome" 
+                        formControlName="name" 
+                        >
+                    </mt-input-container>
+                  </div>
+
+                  <div class="col-sm-6 col-xs-12">
+                      <mt-input-container 
+                        errorMessage="Campo obrigatório e com 5 caracteres" 
+                        label="Email"
+                      >
+                        <input class="form-group" 
+                          type="text" 
+                          class="form-control" 
+                          id="inputSuccess" 
+                          minlength="5" 
+                          placeholder="Email" 
+                          formControlName="email" 
+                          >
+                      </mt-input-container>
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12">
+                        <mt-input-container 
+                          errorMessage="Campo obrigatório e com 5 caracteres" 
+                          label="Email"
+                        >
+                          <input class="form-group" 
+                            type="text" 
+                            class="form-control" 
+                            id="inputSuccess" 
+                            minlength="5" 
+                            placeholder="Email" 
+                            formControlName="emailConfirmation" 
+                            >
+                        </mt-input-container>
+                      </div>
+
+          </div>
 
           <div class="row invoice-info">
             <div class="col-xs-12">
@@ -27,9 +83,7 @@
                   id="inputSuccess" 
                   minlength="5" 
                   placeholder="Endereço" 
-                  name="adress" 
-                  ngModel 
-                  required 
+                  formControlName="address" 
                   >
               </mt-input-container>
             </div>
@@ -43,10 +97,7 @@
                 class="form-control" 
                 id="inputSuccess" 
                 placeholder="Número" 
-                name="number" 
-                ngModel 
-                required 
-                pattern="^[0-9]*$" 
+                formControlName="number" 
                   >
               </mt-input-container>
   
@@ -61,8 +112,7 @@
                   class="form-control" 
                   id="inputSuccess" 
                   placeholder="Complemento" 
-                  name="optionalAdress" 
-                  ngModel
+                  formControlName="optionaLAddress" 
                 >
               </mt-input-container>
             </div>
@@ -94,7 +144,7 @@
               <p class="lead">Formas de Pagamento:</p>
 
                 <div class="form-group">
-                  <mt-radio [options]="paymentOptions" name="paymentOption" ngModel required></mt-radio>
+                  <mt-radio [options]="paymentOptions" formControlName="paymentOptions"></mt-radio>
 
                 </div>
 
@@ -111,7 +161,7 @@
 
         <div class="row">
           <div class="col-xs-12">
-            <button (click)="checkOrder(form.value)" class="btn btn-success pull-right" [disabled]="!form.valid || carItems().length === 0"><i class="fa fa-credit-card"></i> Concluir Pedido</button>
+            <button (click)="checkOrder(orderForm.value)" class="btn btn-success pull-right" [disabled]="!orderForm.valid || carItems().length === 0"><i class="fa fa-credit-card"></i> Concluir Pedido</button>
           </div>
         </div>
 
