@@ -1,5 +1,3 @@
-import { AboutComponent } from './about/about.component';
-import { OrderComponent } from './order/order.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
@@ -19,7 +17,7 @@ export const ROUTES: Routes = [
             {path: 'review', component: ReviewsComponent}
         ]
     },
-    {path: 'order', component: OrderComponent},
+    {path: 'order', loadChildren: './order/order.module#OrderModule'},
     {path: 'order-sumary', component: OrderSumaryComponent },
     {path: 'about', loadChildren: './about/about.module#AboutModule'},
     {path: '**', component: NotfoundComponent}

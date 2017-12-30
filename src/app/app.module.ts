@@ -22,9 +22,6 @@ import { HomeComponent } from './home/home.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { OrderComponent } from './order/order.component';
-import { OrderItemsComponent } from './order/order-items/order-items.component';
-import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
 import { SharedModule } from 'app/shared/shared.module';
 
@@ -41,10 +38,7 @@ import { SharedModule } from 'app/shared/shared.module';
     MenuItemComponent,
     ReviewsComponent,
     NotfoundComponent,
-    OrderComponent,
-    OrderItemsComponent,
-    DeliveryCostsComponent,
-    OrderSumaryComponent,
+    OrderSumaryComponent
   ],
   imports: [
     BrowserModule,
