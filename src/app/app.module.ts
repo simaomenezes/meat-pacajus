@@ -23,12 +23,10 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { OrderComponent } from './order/order.component';
-import { InputComponent } from './shared/input/input.component';
-import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
 import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
-import { RatingComponent } from './shared/rating/rating.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -44,18 +42,14 @@ import { RatingComponent } from './shared/rating/rating.component';
     ReviewsComponent,
     NotfoundComponent,
     OrderComponent,
-    InputComponent,
-    RadioComponent,
     OrderItemsComponent,
     DeliveryCostsComponent,
     OrderSumaryComponent,
-    RatingComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
   // utilizando configuracao para url com # -- hash
