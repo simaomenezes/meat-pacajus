@@ -1,11 +1,9 @@
-import { OrderService } from './order/order.service';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
+import { CoreModule } from './core/core.module';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { RestaurantsService } from './restaurants/restaurants.service';
 
 import { ROUTES } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,11 +42,12 @@ import { SharedModule } from 'app/shared/shared.module';
     BrowserModule,
     HttpModule,
     SharedModule,
+    CoreModule,
     RouterModule.forRoot(ROUTES)
   ],
   // utilizando configuracao para url com # -- hash
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy }, RestaurantsService, ShoppingCartService],
-  providers: [RestaurantsService, ShoppingCartService, {provide: LOCALE_ID, useValue: 'pt-BR'}, OrderService],
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
