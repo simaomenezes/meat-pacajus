@@ -8,9 +8,9 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { ROUTES } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID} from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common'
 
 
@@ -43,7 +43,7 @@ import { SharedModule } from 'app/shared/shared.module';
     HttpModule,
     SharedModule.forRoot(),
     //CoreModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
   ],
   // utilizando configuracao para url com # -- hash
   // providers: [{provide: LocationStrategy, useClass: HashLocationStrategy }, RestaurantsService, ShoppingCartService],
