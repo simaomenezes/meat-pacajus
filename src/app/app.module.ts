@@ -1,4 +1,4 @@
-import { CoreModule } from './core/core.module';
+// import { CoreModule } from './core/core.module';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
@@ -41,8 +41,8 @@ import { SharedModule } from 'app/shared/shared.module';
   imports: [
     BrowserModule,
     HttpModule,
-    SharedModule,
-    CoreModule,
+    SharedModule.forRoot(),
+    //CoreModule,
     RouterModule.forRoot(ROUTES)
   ],
   // utilizando configuracao para url com # -- hash
